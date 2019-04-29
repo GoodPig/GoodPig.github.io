@@ -16,6 +16,19 @@
 	</style>
 </head>
 <body>
-<h1>吃火锅 王曦说的，这次必须吃。</h1>
+<h1></h1>
+<script type="text/javascript">
+	
+
+	var h1 = document.querySelector('h1');
+	console.log()
+	
+	setInterval(function(){
+		var data = new Date();
+		var levae = 60 - data.getMinutes();
+		var lemi = 60 - data.getSeconds();
+		h1.innerHTML= "剩下 "+levae+" 分钟 , " + lemi + "秒";
+	},1000)
+</script>
 </body>
 </html>
