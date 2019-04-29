@@ -27,7 +27,11 @@
 		var data = new Date();
 		var levae = 60 - data.getMinutes();
 		var lemi = 60 - data.getSeconds();
-		h1.innerHTML= "剩下 "+levae+" 分钟 , " + lemi + "秒";
+		if (levae == 0 && lemi == 0) {
+			h1.innerHTML = "绽明龙 吃 大便";
+		} else {
+			h1.innerHTML= "剩下 "+levae+" 分钟 , " + lemi + "秒";
+		}
 	},1000)
 </script>
 </body>
