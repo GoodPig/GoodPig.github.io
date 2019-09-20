@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> -->
+  <title>课堂报告</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="header">
+      <div class="wrap">
+        <div class="header-title">课堂报告</div>
+        <div class="header-details">
+          <span>教师：{{classInfo.teacher}}</span>
+          <span>班级：{{classInfo.classs}}</span>
+          <span>科目：{{classInfo.project}}</span>
+        </div>
+        <a class="returnButton" href="index.html"><span class="returns">返回</span><i class="self-right"></i></a>
+      </div>
+    </div>
+    <div class="section moreSection">
+      <div class="wrap">
+        <div class="tables">
+          <div class="section-header">测评详情页</div>
+          <!-- 单题的测评数据 -->
+          <div class="tables-datas1" v-for="items in tablseDataSingle">
+            <div class="single-titles">
+              <span class="single-titles1">{{items.qustionName}}</span>
+              <span class="single-contents"  style="font-size: 24px">（
+                答案<em>（{{items.answer}}）</em>，
+                班级<em>{{items.allStudent}}</em> 人，
+                作答<em>{{items.answers}}</em>人，
+                答对<em>{{items.answerRight}}</em>人，
+                答对率<em>{{items.answerRate}}</em>）
+              </span>
+            </div>
+            <div class="single-box">
+              <ul v-for="(item, index) in items.options" :key='index' class="tables-datas1-body">
+                <li class="item-keys" style="font-size: 24px">选项{{item.Key}}（{{item.porpers}}）人</li>
+                <li class="item-values" style="font-size: 24px">{{item.names}}</li>
+              </ul>
+            </div>
+          </div>
+          <!-- 单题的测评数据 -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/data.js"></script>
+  <script type="text/javascript" src="js/echarts.min.js"></script>
+  <script type="text/javascript" src="js/vue.js"></script>
+  <script type="text/javascript" src="js/more.js"></script>
+</body>
+
+</html>
