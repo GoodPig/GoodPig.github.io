@@ -1,38 +1,85 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-	<meta charset="utf-8">
-	<style type="text/css">
-		h1{
-			display: block;
-			position: fixed;
-			left: 50% ;
-			transform: translate(-50%, -50%);
-			top: 50% ;
-			font-size: 30px;
-			/*transform: */
-		}
-	</style>
-</head>
-<body>
-<h1></h1>
-<script type="text/javascript">
-	
 
-	var h1 = document.querySelector('h1');
-	console.log()
-	
-	setInterval(function(){
-		var data = new Date();
-		var levae = 60 - data.getMinutes();
-		var lemi = 60 - data.getSeconds();
-		if (levae == 0 || lemi == 0) {
-			h1.innerHTML = "绽明龙 吃 大便";
-		} else {
-			h1.innerHTML= "剩下 "+levae+" 分钟 , " + lemi + "秒";
-		}
-	},1000)
-</script>
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> -->
+  <title>课堂报告</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="codeLookPhone" v-if='showcode'>
+      <a class="coloseX" href="javaScript:void(0)" @click="showcode = false">X</a>
+      <div class="codeLookPhone-title">手机查看报告</div>
+      <img src="./static/code.png" alt="">
+    </div>
+    <div class="header">
+      <div class="wrap">
+        <div class="header-title">课堂报告</div>
+        <div class="header-details">
+          <span>教师：{{classInfo.teacher}}</span>
+          <span>班级：{{classInfo.classs}}</span>
+          <span>科目：{{classInfo.project}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="wrap">
+        <div class="tip">
+          <i class="icon-noise"></i>
+          <span>亲爱的教师，本次堂课：</span>
+        </div>
+        <div class="tip-details">
+          共<span> {{classDetails.studentNumber}} </span>个学生参与了课堂测验，答题<span> {{classDetails.answerQuestion}}
+          </span>次；使用互动教学工具<span> {{classDetails.userUtils}} </span>次，占课堂时间的<span> {{classDetails.userDates}} </span>。
+        </div>
+
+
+        <div class="tables">
+          <div class="section-header">测评数据</div>
+          <div class="tables-sections">
+            <li @click="changeSelectionFun" class="moreDetails">更多<i class="self-morer"></i></li>
+          </div>
+          <!-- 全部的测评数据 -->
+          <div class="tables-datas2">
+            <ul class="tables-datas2-header">
+              <li>姓名</li>
+              <li>答题数</li>
+              <li>答对</li>
+              <li>答错</li>
+            </ul>
+            <ul v-for="(item, index) in tablesAllData" :key='index' :class="['tables-datas2-body', 'sort'+item.sort]">
+              <li><span class="sortsIndex">{{item.sort}}</span><span>{{item.name}}</span> </li>
+              <li>{{item.qaNumber}}</li>
+              <li>{{item.answerRight}}</li>
+              <li>{{item.answerError}}</li>
+            </ul>
+            <ul class="tables-datas2-body" v-if="!showAllTables">
+              <li class="showMore" @click="showAllTablse">
+                <span>查看更多</span><i class="self-more"></i>
+              </li>
+            </ul>
+          </div>
+          <!-- 全部的测评数据 -->
+
+        </div>
+
+
+        <div class="echarts">
+          <div class="section-header">应用使用</div>
+          <div ref="echarts" class="echarts-box"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/data.js"></script>
+  <script type="text/javascript" src="js/echarts.min.js"></script>
+  <script type="text/javascript" src="js/vue.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
 </body>
+
 </html>
