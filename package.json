@@ -1,0 +1,12 @@
+{
+  "name": "GoodPig.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/GoodPig/GoodPig.github.io.git",
+  "author": "0096001930 <0096001930@zte.com.cn>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
