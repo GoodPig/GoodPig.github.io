@@ -6,6 +6,7 @@
   "author": "0096001930 <0096001930@zte.com.cn>",
   "license": "MIT",
   "dependencies": {
+    "element-ui": "^2.13.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
